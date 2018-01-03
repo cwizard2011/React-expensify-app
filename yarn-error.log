@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files (x86)\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add enzyme-to-json
+  C:\Program Files (x86)\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add numeral
 
 PATH: 
-  C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\Microsoft SQL Server\90\Tools\binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Calibre2\;C:\Program Files (x86)\nodejs\;C:\Users\LENOVO\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\LENOVO\AppData\Local\Programs\Python\Python35-32\;C:\Users\LENOVO\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\LENOVO\AppData\Roaming\npm
+  C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\Microsoft SQL Server\90\Tools\binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Calibre2\;C:\Program Files (x86)\nodejs\;C:\Users\LENOVO\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\LENOVO\AppData\Local\Programs\Python\Python35-32\;C:\Users\LENOVO\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\LENOVO\AppData\Roaming\npm;C:\Program Files\Heroku\bin
 
 Yarn version: 
   1.3.2
@@ -20,9 +20,12 @@ npm manifest:
     "description": "My react application",
     "main": "index.js",
     "scripts": {
-      "build": "webpack",
+      "build:dev": "webpack",
+      "build:prod": "webpack -p --env production",
       "dev-server": "webpack-dev-server",
-      "test": "jest --config=jest.config.json"
+      "test": "jest --config=jest.config.json",
+      "start": "node server/server.js",
+      "heroku-postbuild": "yarn run build:prod"
     },
     "keywords": [
       "INDECISION",
@@ -38,9 +41,8 @@ npm manifest:
       "babel-preset-env": "^1.5.2",
       "babel-preset-react": "^6.24.1",
       "css-loader": "^0.28.7",
-      "enzyme": "^3.2.0",
-      "enzyme-adapter-react-16": "^1.1.1",
-      "jest": "^21.2.1",
+      "express": "^4.16.2",
+      "extract-text-webpack-plugin": "^3.0.2",
       "moment": "^2.19.4",
       "node-sass": "^4.7.2",
       "normalize.css": "^7.0.0",
@@ -52,13 +54,19 @@ npm manifest:
       "react-modal": "^3.1.5",
       "react-redux": "^5.0.6",
       "react-router-dom": "^4.2.2",
-      "react-test-renderer": "^16.2.0",
       "redux": "^3.7.2",
       "sass-loader": "^6.0.6",
       "style-loader": "^0.19.0",
       "uuid": "^3.1.0",
       "validator": "^9.1.2",
-      "webpack": "^3.8.1",
+      "webpack": "^3.8.1"
+    },
+    "devDependencies": {
+      "enzyme": "^3.2.0",
+      "enzyme-adapter-react-16": "^1.1.1",
+      "enzyme-to-json": "^3.3.0",
+      "jest": "^21.2.1",
+      "react-test-renderer": "^16.2.0",
       "webpack-dev-server": "^2.9.5"
     }
   }
@@ -319,7 +327,7 @@ Lockfile:
     version "1.5.2"
     resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
   
-  async@^2.1.2, async@^2.1.4, async@^2.1.5:
+  async@^2.1.2, async@^2.1.4, async@^2.1.5, async@^2.4.1:
     version "2.6.0"
     resolved "https://registry.yarnpkg.com/async/-/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
     dependencies:
@@ -1882,6 +1890,12 @@ Lockfile:
       object.assign "^4.0.4"
       prop-types "^15.6.0"
   
+  enzyme-to-json@^3.3.0:
+    version "3.3.0"
+    resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.3.0.tgz#553e23a09ffb4b0cf09287e2edf9c6539fddaa84"
+    dependencies:
+      lodash "^4.17.4"
+  
   enzyme@^3.2.0:
     version "3.2.0"
     resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-3.2.0.tgz#998bdcda0fc71b8764a0017f7cc692c943f54a7a"
@@ -2162,6 +2176,15 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/extglob/-/extglob-0.3.2.tgz#2e18ff3d2f49ab2765cec9023f011daa8d8349a1"
     dependencies:
       is-extglob "^1.0.0"
+  
+  extract-text-webpack-plugin@^3.0.2:
+    version "3.0.2"
+    resolved "https://registry.yarnpkg.com/extract-text-webpack-plugin/-/extract-text-webpack-plugin-3.0.2.tgz#5f043eaa02f9750a9258b78c0a6e0dc1408fb2f7"
+    dependencies:
+      async "^2.4.1"
+      loader-utils "^1.1.0"
+      schema-utils "^0.3.0"
+      webpack-sources "^1.0.1"
   
   extsprintf@1.3.0, extsprintf@^1.2.0:
     version "1.3.0"
@@ -6106,6 +6129,4 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
-      at errnoException (dns.js:50:10)
-      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:92:26)
+  Error: EPERM: operation not permitted, unlink 'C:\Users\LENOVO\Desktop\APPLICATIONS\expensify-app\node_modules\acorn-dynamic-import\node_modules\.bin'
