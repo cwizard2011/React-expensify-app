@@ -4,10 +4,13 @@
   "description": "My react application",
   "main": "index.js",
   "scripts": {
+    "serve": "live-server public/",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
-    "serve": "webpack-dev-server",
-    "test": "jest --config=jest.config.json"
+    "dev-server": "webpack-dev-server",
+    "test": "jest --config=jest.config.json",
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build:prod"
   },
   "keywords": [
     "INDECISION",
