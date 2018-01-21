@@ -1,13 +1,11 @@
 language: node_js
 node_js:
     - "6"
-
-before_script:
-    - npm install -g gulp
+    
+services: firebase
 
 script:
     - npm run test
-    - npm run dev
-    
-after_script:
-    - npm run coveralls
+    - npm run build:dev
+
+
