@@ -65,31 +65,31 @@ export default class ExpenseForm extends React.Component {
           onChange={this.onDescriptionChange}
         />
         <input
-                    type="text"
-                    placeholder="Amount in $"
-                    className="text-input"
-                    value={this.state.amount}
-                    onChange={this.onAmountChange}
-                />
-                <SingleDatePicker
-                    date={this.state.createdAt}
-                    onDateChange={this.onDateChange}
-                    focused={this.state.calendarFocused}
-                    onFocusChange={this.onFocusChange}
-                    numberOfMonths={1}
-                    isOutsideRange={() => false} //To make days in past present and future available
-                />
-                <textarea
-                    className="textarea"
-                    placeholder="Add a note for your expense (optional)"
-                    value={this.state.note}
-                    onChange={this.onNoteChange}
-                >
-                </textarea>
-                <div>
-                    <button className="button">Save Expense</button>
-                </div>
-               </form>
-        )
-    }
+          type="text"
+          placeholder="Amount in $"
+          className="text-input"
+          value={this.state.amount}
+          onChange={this.onAmountChange}
+        />
+        <SingleDatePicker
+          date={this.state.createdAt}
+          onDateChange={this.onDateChange}
+          focused={this.state.calendarFocused}
+          onFocusChange={this.onFocusChange}
+          numberOfMonths={1}
+          isOutsideRange={() => false} //To make days in past present and future available
+        />
+        <textarea
+          className="textarea"
+          placeholder="Add a note for your expense (optional)"
+          value={this.state.note}
+          onChange={this.onNoteChange}
+          >
+        </textarea>
+        <div>
+          <button className="button">Save Expense</button>
+        </div>
+      </form>
+    )
+  }
 }

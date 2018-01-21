@@ -40,7 +40,7 @@ module.exports = (env) => {
                   options: {
                     sourceMap: true
                   }
-                  }      
+                  }    
               ]
             })
           }]
