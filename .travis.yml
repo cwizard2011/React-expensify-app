@@ -3,6 +3,8 @@ node_js:
     - "6"
 
 script:
-    - npm run build:dev
+    - npm run build:dev,
+    - npm run test
+    
 
 

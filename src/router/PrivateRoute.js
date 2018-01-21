@@ -4,24 +4,24 @@ import { Route, Redirect } from 'react-router-dom';
 import Header from '../components/Header';
 
 export const PrivateRoute = ({ 
-    isAuthenticated, 
-    component: Component,
-    ...rest // rest is just a variable name for other things that have not been destructured
+  isAuthenticated, 
+  component: Component,
+  ...rest // rest is just a variable name for other things that have not been destructured
 }) => (
     <Route {...rest} component={(props) => (
-        isAuthenticated ? (
-            <div>
-                <Header />
-                <Component {...props} />
-            </div>
-        ) : (
-            <Redirect to= "/" />
+      isAuthenticated ? (
+        <div>
+          <Header />
+          <Component {...props} />
+        </div>
+      ) : (
+          <Redirect to= "/" />
         )
-    )}/>
+    )} />
 );
 
 const mapStateToProps = (state) => ({
-    isAuthenticated: !!state.auth.uid
+  isAuthenticated: !!state.auth.uid
 });
 
-export default connect(mapStateToProps)(PrivateRoute)
+export default connect(mapStateToProps)(PrivateRoute);
