@@ -63,7 +63,7 @@ test('should setup edit expense action object', () => {
 test('should edit expense on firebase', (done) => {
     const store= createMockStore(defaultAuthState);
     const id = expenses[0].id;
-    const updates = { amount: 80045 }
+    const updates = { amount: 195 }
     store.dispatch(startEditExpense(id, updates)).then(() => {
         const actions = store.getActions();
         expect(actions[0]).toEqual({
