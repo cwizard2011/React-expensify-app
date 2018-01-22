@@ -30,14 +30,12 @@ exports[`should render EditExpensePage correctly 1`] = `
       }
       onSubmit={[Function]}
     />
-    <div>
-      <button
-        className="button button--secondary"
-        onClick={[Function]}
-      >
-        Remove Expense
-      </button>
-    </div>
+    <button
+      className="button button--secondary"
+      onClick={[Function]}
+    >
+      Remove Expense
+    </button>
   </div>
 </div>
 `;
