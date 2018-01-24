@@ -25,11 +25,13 @@ module.exports = (env) => {
         loader: 'babel-loader',
         test: /\.js$/,
         exclude: /node_modules/,
-        query: {
-          plugins: ['transform-runtime'],
-          presets: ['es2015', 'stage-0', 'react']
-        }
-      }, {
+    },{
+      loader: 'babel-loader',
+      query: {
+        plugins: ['transform-runtime'],
+        presets: ['es2015', 'stage-0', 'react'],
+      }
+    }, {
         test:/\.s?css$/,
         use: CSSExtract.extract({
           use: [
@@ -47,11 +49,6 @@ module.exports = (env) => {
             }    
           ]
         }),
-        query: {
-          loader: 'babel-loader',
-          plugins: ['transform-runtime'],
-          presets: ['es2015', 'stage-0', 'react'],
-        }
       }]
     },
     plugins: [
