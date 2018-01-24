@@ -24,7 +24,11 @@ module.exports = (env) => {
       rules: [{
         loader: 'babel-loader',
         test: /\.js$/,
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        query: {
+          plugins: ['transform-runtime'],
+          presets: ['es2015', 'stage-0', 'react']
+        }
       }, {
         test:/\.s?css$/,
         use: CSSExtract.extract({
