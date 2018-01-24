@@ -3,4 +3,3 @@ public/dist/
 src/playground/
 .env.test
 .env.development
-.babelrc

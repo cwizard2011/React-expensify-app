@@ -15,7 +15,7 @@ module.exports = (env) => {
   const CSSExtract = new ExtractTextPlugin('styles.css');
 
   return {
-    entry: ['babel-polyfill', './src/app.js'],
+    entry: './src/app.js',
     output: {
       path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js'
@@ -42,7 +42,12 @@ module.exports = (env) => {
               }
             }    
           ]
-        })
+        }),
+        query: {
+          loader: 'babel-loader',
+          plugins: ['transform-runtime'],
+          presets: ['es2015', 'stage-0', 'react'],
+        }
       }]
     },
     plugins: [
